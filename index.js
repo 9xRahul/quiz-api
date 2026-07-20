@@ -5,6 +5,10 @@ const app = express();
 const questions = require('./questions.json');
 const PORT = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Quiz API! Go to /questions to see the data.');
+});
+
 app.get('/ping', (req, res) => {
     res.send('Server is awake');
 });
