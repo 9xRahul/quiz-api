@@ -5,6 +5,12 @@ const app = express();
 const questions = require('./questions.json');
 const PORT = process.env.PORT || 3000;
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 app.get('/', (req, res) => {
     res.send('Welcome to the Quiz API! Go to /questions to see the data.');
 });
